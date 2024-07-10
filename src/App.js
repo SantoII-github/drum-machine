@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { useState } from 'react';
+import Display from './components/Display';
+import Drumpad from './components/Drumpad';
+import soundsArray from './sounds';
 
 function App() {
+  const [lastSound, setLastSound] = useState("");
+
+  const renderDrumpads = soundsArray.map(el => <Drumpad key={el.key} sound={el.sound} keyId={el.key} keyCode={el.keyCode} lastSoundHandler={setLastSound}/>)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div id="drum-machine">
+        <Display sound="Clap" lastSound={lastSound}/>
+        <div className="drum-container">
+        {renderDrumpads}
+        </div>
+      </div>
     </div>
   );
 }

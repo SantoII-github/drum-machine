@@ -1,0 +1,63 @@
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  text-align: center;
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1rem;
+  background: linear-gradient(0deg, #13253d 15%, #2C3D55 90%);
+}
+
+#drum-machine {
+  max-width: 80%;
+  border: 3px solid white;
+  padding: 20px;
+  background-color: #3E4C5E;
+  border-radius: 7px;
+
+  #display {
+    background-color: #84828F;
+    min-height: 35px;
+    max-width: 300px;
+    border-radius: 7px;
+    margin: 15px auto;
+  }
+
+  .drum-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    place-items: center;
+    grid-gap: 3%;
+    height: 20vw;
+    width: 20vw;
+    margin: 0 auto;
+
+    .drum-pad {
+      border: 1px solid black;
+      background-color: #2C3D55;
+      height: 90%;
+      width: 90%;
+      border-radius: 7px;
+      display: grid;
+	    align-items: center;
+      &:hover {
+        transform: scale(0.95);
+      }
+      
+    }
+
+    .drum-highlight {
+      background-color: white;
+    }
+  }
+  
+}
+
