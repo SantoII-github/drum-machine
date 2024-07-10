@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 function Drumpad(props) {
     const [isHighlighted, setIsHighlighted] = useState(false);
-    const soundPath = `../audio/${props.sound}.mp3`
+    const soundPath = process.env.PUBLIC_URL + `/audio/${props.sound}.mp3`
 
     const playSound = () => {
         const e = document.getElementById(props.keyId);
@@ -14,7 +14,6 @@ function Drumpad(props) {
     };
 
     const handleKeyDown = (event) => {
-        console.log(`pressed ${event.keyCode}`);
         if (event.keyCode === props.keyCode) {
             playSound();
         }
